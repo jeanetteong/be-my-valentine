@@ -42,16 +42,21 @@
             border-color: #eb172c;
         }
 
+        .image-container {
+            height: 400px;
+        }
     </style>
     <title>Be My Valentine?</title>
 </head>
 
 <body>
-    <div class="d-flex justify-content-center mt-5">
+    <div class="d-flex justify-content-center mt-5 image-container">
         <img class="cat img-fluid" src="images/cat.jpg" width="20%">
+        <img class="die img-fluid" src="images/die.jpg" width="20%" style="display:none;">
+        <img class="cat-happy img-fluid" src="images/cat-happy.gif" width="20%" style="display:none;">
     </div>
 
-    <h1 class="title text-center mt-5">Be my Valentine?</h1>
+    <h1 id="title" class="title text-center mt-5">Be my Valentine?</h1>
 
     <div class="row mt-4">
         <div class="col-3"></div>
@@ -62,7 +67,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script>
+        function handleNoMouseOver() {
+            document.querySelector('.cat').style.display = 'none';
+            document.querySelector('.die').style.display = 'block';
+            document.getElementById('title').innerHTML = 'u sure bout that?';
+        }
 
+        function handleNoMouseOut() {
+            document.querySelector('.cat').style.display = 'block';
+            document.querySelector('.die').style.display = 'none';
+            document.getElementById('title').innerHTML = 'Be my Valentine?';
+        }
+
+        function handleYesClick() {
+            document.querySelector('.cat').style.display = 'none';
+            document.querySelector('.cat-happy').style.display = 'block';
+            document.getElementById('title').innerHTML = 'LOVE YOUUUUUU';
+            document.getElementById("yes").disabled = true;
+            document.getElementById("no").disabled = true;
+            document.getElementById('no').removeEventListener('mouseover', handleNoMouseOver);
+            document.getElementById('no').removeEventListener('mouseout', handleNoMouseOut);
+        }
+
+        document.getElementById('no').addEventListener('mouseover', handleNoMouseOver);
+        document.getElementById('no').addEventListener('mouseout', handleNoMouseOut);
+        document.getElementById('yes').addEventListener('click', handleYesClick);
+    </script>
 </body>
 
 </html>
