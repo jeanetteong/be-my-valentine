@@ -1,2 +1,1 @@
-# be-my-valentine
-for the hopeless romantics
+send this to someone you love
