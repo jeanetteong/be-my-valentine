@@ -1,19 +1,19 @@
 function handleNoMouseOver() {
     document.querySelector('.cat').style.display = 'none';
     document.querySelector('.die').style.display = 'block';
-    document.getElementById('title').innerHTML = 'u sure bout that?';
+    document.getElementById('title').innerHTML = 'you sure about that?';
 }
 
 function handleNoMouseOut() {
     document.querySelector('.cat').style.display = 'block';
     document.querySelector('.die').style.display = 'none';
-    document.getElementById('title').innerHTML = 'Be my Valentine?';
+    document.getElementById('title').innerHTML = 'Will You Be my Valentine?';
 }
 
 function handleYesClick() {
     document.querySelector('.cat').style.display = 'none';
     document.querySelector('.cat-happy').style.display = 'block';
-    document.getElementById('title').innerHTML = 'LOVE YOUUUUUU';
+    document.getElementById('title').innerHTML = 'I LOVE YOU';
     document.getElementById("yes").disabled = true;
     document.getElementById("no").disabled = true;
     document.getElementById('no').removeEventListener('mouseover', handleNoMouseOver);
